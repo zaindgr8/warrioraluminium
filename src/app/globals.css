@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  /* Base neutrals */
+  --color-ink: #0c0a09;
+  --color-charcoal: #1c1917;
+  --color-charcoal-2: #292420;
+  --color-stone: #57534e;
+  --color-stone-soft: #8a8380;
+  --color-paper: #faf9f6;
+  --color-paper-2: #f2efe9;
+  --color-border: #e6e1d7;
+  --color-border-dark: #3a342f;
+
+  /* Warrior gold */
+  --color-gold: #b8892b;
+  --color-gold-soft: #e9d3a0;
+  --color-gold-deep: #8a6416;
+  --color-gold-bright: #d9a63f;
+
+  --font-display: var(--font-bodoni);
+  --font-sans: var(--font-jost);
+
+  --ease-warrior: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-2: var(--color-charcoal-2);
+  --color-stone: var(--color-stone);
+  --color-stone-soft: var(--color-stone-soft);
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-border: var(--color-border);
+  --color-border-dark: var(--color-border-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-deep: var(--color-gold-deep);
+  --color-gold-bright: var(--color-gold-bright);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --animate-fade-up: fade-up 0.8s var(--ease-warrior) both;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-draw: draw 1.4s var(--ease-warrior) forwards;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Warm gold focus ring for keyboard nav */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
