@@ -36,14 +36,8 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-20 items-center justify-between">
-        <Link
-          href="/"
-          className={cn(
-            "transition-colors duration-300",
-            scrolled || open ? "text-ink" : "text-paper",
-          )}
-        >
-          <Logo tone={scrolled || open ? "light" : "dark"} />
+        <Link href="/">
+          <Logo variant={scrolled || open ? "sticky" : "white"} />
         </Link>
 
         <nav className="hidden md:flex items-center gap-9">

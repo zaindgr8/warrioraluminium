@@ -11,7 +11,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
           <div className="md:col-span-1">
             <Link href="/">
-              <Logo tone="dark" />
+              <Logo variant="white" className="h-20 w-auto object-contain" />
             </Link>
             <p className="mt-5 text-sm leading-relaxed text-paper/60 max-w-xs">
               {site.description}
@@ -87,7 +87,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col-reverse items-center gap-4 border-t border-border-dark pt-8 md:flex-row md:justify-between">
           <p className="text-xs text-paper/40">
-            © {new Date().getFullYear()} Warriors Aluminium &amp; Glass, a division of Warriors Group. All rights reserved.
+            © 2023 Warriors Aluminium &amp; Glass, a division of Warriors Group. All rights reserved.
           </p>
           <p className="text-xs text-paper/40">
             Serving {site.areas}
